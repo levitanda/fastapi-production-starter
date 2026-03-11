@@ -1,3 +1,10 @@
+![Python](https://img.shields.io/badge/python-3.11+-blue?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.111+-009688?logo=fastapi&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-red)
+![Docker](https://img.shields.io/badge/docker-ready-2496ED?logo=docker&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+[![Buy on Gumroad](https://img.shields.io/badge/Buy%20on-Gumroad-FF90E8)](https://vitan0.gumroad.com/l/lufbvz)
+
 # FastAPI Production Starter Kit 🚀
 
 A production-ready FastAPI template with JWT auth, async SQLAlchemy 2.0, Alembic migrations, rate limiting, structured logging, and Docker support.
