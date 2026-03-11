@@ -1,3 +1,4 @@
+import uuid as _uuid
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -72,7 +73,11 @@ async def get_user_by_email(db: AsyncSession, email: str) -> User | None:
 
 
 async def get_user_by_id(db: AsyncSession, user_id: str) -> User | None:
-    result = await db.execute(select(User).where(User.id == user_id))
+    try:
+        uid = _uuid.UUID(user_id)
+    except (ValueError, AttributeError):
+        return None
+    result = await db.execute(select(User).where(User.id == uid))
     return result.scalar_one_or_none()
 
 

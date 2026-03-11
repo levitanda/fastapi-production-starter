@@ -9,7 +9,7 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
 
 from app.config import settings
-from app.database import engine
+from app.database import get_engine
 from app.middleware.cors import setup_cors
 from app.routers import auth, users
 
@@ -40,7 +40,7 @@ logger = structlog.get_logger(__name__)
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     logger.info("startup", app=settings.APP_NAME, version=settings.APP_VERSION, env=settings.ENVIRONMENT)
     yield
-    await engine.dispose()
+    await get_engine().dispose()
     logger.info("shutdown", app=settings.APP_NAME)
 
 

@@ -9,7 +9,6 @@ from typing import Sequence, Union
 
 import sqlalchemy as sa
 from alembic import op
-from sqlalchemy.dialects import postgresql
 
 # revision identifiers
 revision: str = "001"
@@ -23,7 +22,7 @@ def upgrade() -> None:
         "users",
         sa.Column(
             "id",
-            postgresql.UUID(as_uuid=True),
+            sa.Uuid(as_uuid=True),
             server_default=sa.text("gen_random_uuid()"),
             nullable=False,
         ),
